@@ -14,10 +14,10 @@ public class OrderRepository {
     HashMap<String, List<String>> partnerOrders;
 
     public OrderRepository(){
-        orders = new HashMap<>();
-        deliveryPartners = new HashMap<>();
-        orderPartnerPair = new HashMap<>();
-        partnerOrders = new HashMap<>();
+        this.orders = new HashMap<>();
+        this.deliveryPartners = new HashMap<>();
+        this.orderPartnerPair = new HashMap<>();
+        this.partnerOrders = new HashMap<>();
     }
 
     //1

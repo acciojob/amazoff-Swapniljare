@@ -8,24 +8,24 @@ public class Order {
     private int deliveryTime;
 
     public Order(String id, String deliveryTime) {
-        String stringHours1 = String.valueOf(deliveryTime.charAt(0));
-        String stringHours2 = String.valueOf(deliveryTime.charAt(1));
-        String ans1 = stringHours1 + stringHours2;
-        int hours = Integer.parseInt(ans1);
-
-        hours = hours*60;
-        String stringMinutes1 = String.valueOf(deliveryTime.charAt(3));
-        String stringMinutes2 = String.valueOf(deliveryTime.charAt(4));
-        int minutes = Integer.parseInt(stringMinutes1 + stringMinutes2);
-        int ans = hours + minutes;
-        this.id = id;
-        this.deliveryTime = ans;
+        this.id = id ;
+        String [] str = deliveryTime.split(":");
+        int time = Integer.parseInt(str[0])*60 + Integer.parseInt(str[1]);
+        this.deliveryTime = time;
+//        String stringHours1 = String.valueOf(deliveryTime.charAt(0));
+//        String stringHours2 = String.valueOf(deliveryTime.charAt(1));
+//        String ans1 = stringHours1 + stringHours2;
+//        int hours = Integer.parseInt(ans1);
+//
+//        hours = hours*60;
+//        String stringMinutes1 = String.valueOf(deliveryTime.charAt(3));
+//        String stringMinutes2 = String.valueOf(deliveryTime.charAt(4));
+//        int minutes = Integer.parseInt(stringMinutes1 + stringMinutes2);
+//        int ans = hours + minutes;
+//        this.id = id;
+//        this.deliveryTime = ans;
         // The deliveryTime has to converted from string to int and then stored in the attribute
         //deliveryTime  = HH*60 + MM
-    }
-
-    public static String getDeliveryTimeAsString(int lastOrderTime) {
-        return getDeliveryTimeAsInt(lastOrderTime).toString();
     }
 
     public String getId() {
@@ -36,7 +36,7 @@ public class Order {
         return (Integer.parseInt(deliveryTime.substring(0,2))*60) + Integer.parseInt(deliveryTime.substring(3));
     }
 
-    public static String getDeliveryTimeAsInt(int deliveryTime){
+    public static String getDeliveryTimeAsString(int deliveryTime){
         int hours = deliveryTime / 60;
         int min = deliveryTime % 60;
 

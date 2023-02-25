@@ -1,12 +1,14 @@
 package com.driver;
 
 import io.swagger.models.auth.In;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class OrderService {
+    @Autowired
     OrderRepository orderRepository = new OrderRepository();
     public void addOrder(Order order){
         orderRepository.addOrder(order);
@@ -18,7 +20,7 @@ public class OrderService {
         orderRepository.addOrderPartnerPair(orderId,partnerId);
     }
     public Order getOrderById(String orderId){
-        return getOrderById(orderId);
+        return orderRepository.getOrderById(orderId);
     }
     public DeliveryPartner getPartnerById(String partnerId){
         return orderRepository.getPartnerById(partnerId);
